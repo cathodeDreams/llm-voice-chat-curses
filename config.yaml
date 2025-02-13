@@ -1,0 +1,32 @@
+llm_model_path: "models/llm/"  # Replace with your actual path
+tts_model_path: "models/tts/kokoro-v1.0.onnx"  # Replace with your actual path
+tts_voices_path: "models/tts/voices.txt" #Replace
+voices_path: "models/tts/voices-v1.0.bin" #Replace with your actual path
+system_prompt_path: "prompts/template.xml"
+n_gpu_layers: 20  # Offload all layers to the GPU
+n_ctx: 4096 # Context Window Size
+temperature: 0.3
+top_p: 1
+top_k: 40
+repetition_penalty: 1.0
+frequency_penalty: 0.0
+presence_penalty: 0.0
+
+
+# Color configurations
+colors:
+  menu_selected:
+    foreground: "BLACK"
+    background: "WHITE"
+  recording_status:
+    foreground: "RED"
+    background: "DEFAULT"
+  ready_status:
+    foreground: "GREEN"
+    background: "DEFAULT"
+  user_message:
+    foreground: "CYAN"
+    background: "DEFAULT"
+  assistant_message:
+    foreground: "MAGENTA"
+    background: "DEFAULT"

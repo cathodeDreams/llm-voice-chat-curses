@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setting>
+    <role>
+        <role_name></role_name>
+        <role_traits></role_traits>
+    </role>
+    <system>
+    </system>
+    <genre></genre>
+    <mechanics>
+        <mechanic></mechanic>
+    </mechanics>
+    <start></start>
+    <forbidden>
+        <forbidden_aspects>emote or asterisk actions</forbidden_aspects>
+        <forbidden_aspects>unnecessary punctuation, such as asterisks, parentheses, or brackets</forbidden_aspects>
+    </forbidden>
+</setting>
