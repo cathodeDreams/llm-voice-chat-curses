@@ -41,6 +41,7 @@ class ChatManager:
         )
         self.llm = None
         self.tts = None
+        self.on_chat_updated = None  # Add callback reference
 
     def initialize_models(self) -> bool:
         """Initialize LLM and TTS models."""
@@ -92,6 +93,8 @@ class ChatManager:
 
         self.state.last_user_message = user_message
         self.state.chat_history.append(f"You: {user_message}")
+        if self.on_chat_updated:  # Immediately update UI with user message
+            self.on_chat_updated()
         self.state.processing = True
         self.status_callback("Thinking...")
 
@@ -99,6 +102,8 @@ class ChatManager:
             # Generate response
             assistant_message = self.llm.chat(user_message)
             self.state.chat_history.append(f"Assistant: {assistant_message}")
+            if self.on_chat_updated:  # Update UI with assistant message before TTS
+                self.on_chat_updated()
 
             if self.state.processing:  # Check if we haven't been stopped
                 self.status_callback("Synthesizing speech...")
@@ -184,6 +189,8 @@ class ChatManager:
         self.state.chat_history.clear()
         self.state.scroll_offset = 0
         self.status_callback("Chat history cleared!")
+        if self.on_chat_updated:  # Notify UI to update
+            self.on_chat_updated()
 
     def toggle_ptt_mode(self):
         """Toggle between PTT and passive mode."""
@@ -204,6 +211,8 @@ class ChatManager:
 
         # Remove last exchange
         self.state.chat_history = self.state.chat_history[:-2] if len(self.state.chat_history) >= 2 else []
+        if self.on_chat_updated:  # Notify UI to update
+            self.on_chat_updated()
         return self.process_voice_input(self.state.last_user_message)
 
     def cleanup(self):

@@ -13,6 +13,9 @@ def start_chat(stdscr, config, settings):
     # Create chat manager
     chat_manager = ChatManager(config, settings, chat_ui.update_status)
     
+    # Set up chat update callback
+    chat_manager.on_chat_updated = lambda: chat_ui.display_chat(chat_manager.state.chat_history, chat_manager.state.scroll_offset)
+    
     # Initialize models
     if not chat_manager.initialize_models():
         return
