@@ -2,8 +2,6 @@
 
 Voice chat interface combining a local [GGUF](https://huggingface.co/docs/gguf/en/index) LLM, [Whisper](https://github.com/openai/whisper) for speech recognition, and [Kokoro TTS](https://github.com/thewh1teagle/kokoro-onnx) for natural AI conversations. Features push-to-talk and passive listening modes.
 
-*Authored by [cathodDreams](https://github.com/cathodDreams) and improved with Gemini Pro 2.0*
-
 ## Features
 
 - Real-time voice input with Whisper
