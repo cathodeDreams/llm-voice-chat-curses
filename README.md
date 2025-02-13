@@ -26,7 +26,7 @@ A voice-based chat interface that combines LLaMA, Whisper, and Kokoro TTS for na
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/cathodDreams/llm_voice_chat.git
+git clone https://github.com/cathodDreams/llm-voice-chat-curses.git
 cd llm_voice_chat
 ```
 
